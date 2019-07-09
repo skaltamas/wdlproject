@@ -1,0 +1,44 @@
+$(function(){
+	$('#sid').on('blur',function(){
+		if(!/(\d{2}((CO)|(DCO)|(EE)|(DEE)|(EX)|(DEX)|(ME)|(DME)|(CE)|(DCE)|(CES)|(DCES))\d{2,3})/gi.test(this.value)){
+			alert("Invalid Roll No");
+			this.value="";
+			return false;
+		}
+	});
+	$('#name').on('keypress',function(e){
+			if(/[^a-zA-Z ]/.test(e.key)){
+				alert("Invalid Name. Only Alphabets and Spaces are allowed");
+				this.value="";
+				return false;
+			}
+	});
+	$('#email').on('blur',function(e){
+		if(!/(^(([a-zA-Z])|([0-9]))+@([a-zA-Z])+.([a-zA-Z]{2,3}))$/gi.test(this.value)){
+			alert("Invalid Email");
+			this.value="";
+			return false;
+		}
+	});
+	$('#username').on('keypress',function(e){
+			if(/[^a-zA-Z]/.test(e.key)){
+				alert("Invalid Username. Only Alphabets are allowed");
+				this.value="";
+				return false;
+			}
+	});
+	$('#passw').on('blur',function(){
+				if(!/[a-zA-Z0-9]{8,}/gi.test(this.value)){
+					alert("Invalid Password. Only Alphabets and Numbers are allowed upto min 8 characters");
+					this.value="";
+					return false;
+				}
+	});
+	$('#cpassword').on('blur',function(){
+				var cpassword=this.value;
+				var password=$('#passw').val();
+				if (cpassword!=password) {
+					alert("Password do not match");
+				}
+	});
+});

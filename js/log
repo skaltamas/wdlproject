@@ -1,0 +1,16 @@
+$(function(){
+	$('#username').on('keypress',function(e){
+			if(/[^a-zA-Z]/.test(e.key)){
+				alert("Invalid Username. Only Alphabets are allowed");
+				this.value="";
+				return false;
+			}
+	});
+	$('#pass').on('blur',function(){
+			if(!/[a-zA-Z0-9]{8,}/gi.test(this.value)){
+				alert("Invalid Password. Only Alphabets and Numbers are allowed upto min 8 characters");
+				this.value="";
+				return false;
+			}
+	});
+});
